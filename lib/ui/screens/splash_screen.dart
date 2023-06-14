@@ -1,9 +1,10 @@
 
 import 'dart:developer';
 
-import '/ui/screens/get_start_screen.dart';
 
-import '/ui/util/style.dart';
+import 'package:braincarrier/ui/screens/get_start_screen.dart';
+import 'package:braincarrier/ui/screens/login_screen.dart';
+import 'package:braincarrier/ui/util/style.dart';
 import 'package:flutter/material.dart';
 
 import '../util/app_colors.dart';
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 10)).then((value)async {
-      Get.offAll((const GetStartedScreen()));
+      Get.offAll((const LogInScreen()));
     });
 
   }
