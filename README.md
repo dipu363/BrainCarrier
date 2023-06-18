@@ -1,6 +1,6 @@
-# braincarrier
+# Brain Carrier
 
-BrainCarrier is an  quizze app build with flutter faremwork for android and ios and web.
+Brain Carrier is an quizze app build with flutter faremwork for android and ios and web.
 
 ## Getting Started
 
