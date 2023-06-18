@@ -1,5 +1,5 @@
-import 'package:braincarrier/ui/screens/get_start_screen.dart';
-import 'package:braincarrier/ui/widgets/common_elevated_button.dart';
+import 'package:braincarrier/src/ui/screens/get_start_screen.dart';
+import 'package:braincarrier/src/ui/widgets/common_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../state_managers/user_auth_controller.dart';

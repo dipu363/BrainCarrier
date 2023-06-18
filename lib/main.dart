@@ -1,7 +1,5 @@
-
-
-import 'package:braincarrier/ui/screens/splash_screen.dart';
-import 'package:braincarrier/ui/state_managers/user_auth_controller.dart';
+import 'package:braincarrier/src/ui/screens/splash_screen.dart';
+import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

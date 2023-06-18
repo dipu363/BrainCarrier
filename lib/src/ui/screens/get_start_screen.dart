@@ -1,5 +1,5 @@
-import 'package:braincarrier/ui/screens/signup_screen.dart';
-import 'package:braincarrier/ui/util/app_colors.dart';
+import 'package:braincarrier/src/ui/screens/signup_screen.dart';
+import 'package:braincarrier/src/ui/util/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

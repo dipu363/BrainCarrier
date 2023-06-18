@@ -1,4 +1,4 @@
-import 'package:braincarrier/ui/util/app_colors.dart';
+import 'package:braincarrier/src/ui/util/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CommonElevatedButton extends StatelessWidget {

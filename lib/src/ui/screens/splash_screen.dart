@@ -1,5 +1,5 @@
-import 'package:braincarrier/ui/screens/login_screen.dart';
-import 'package:braincarrier/ui/util/style.dart';
+import 'package:braincarrier/src/ui/screens/login_screen.dart';
+import 'package:braincarrier/src/ui/util/style.dart';
 import 'package:flutter/material.dart';
 
 import '../util/app_colors.dart';

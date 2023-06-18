@@ -1,8 +1,8 @@
-import 'package:braincarrier/ui/state_managers/user_auth_controller.dart';
-import 'package:braincarrier/ui/util/app_colors.dart';
-import 'package:braincarrier/ui/util/style.dart';
-import 'package:braincarrier/ui/widgets/common_edittext_field.dart';
-import 'package:braincarrier/ui/widgets/common_elevated_button.dart';
+import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
+import 'package:braincarrier/src/ui/util/app_colors.dart';
+import 'package:braincarrier/src/ui/util/style.dart';
+import 'package:braincarrier/src/ui/widgets/common_edittext_field.dart';
+import 'package:braincarrier/src/ui/widgets/common_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -104,10 +104,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextFormField(
                   controller: passTextController,
                   validator: (String? value) {
-                    if (value! == null ?? true) {
+                    if (value!.isEmpty) {
                       return 'please type minimum 6 digit password';
                     } else {
-                      if (value!.length < 6) {
+                      if (value.length < 6) {
                         return 'please type minimum 6 digit password';
                       } else {
                         return null;

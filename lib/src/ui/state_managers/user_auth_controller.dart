@@ -1,13 +1,13 @@
-import 'package:braincarrier/ui/screens/login_screen.dart';
-import 'package:braincarrier/ui/screens/student/studen_dashboard.dart';
-import 'package:braincarrier/ui/screens/teacher/teacher_dashboard.dart';
-import 'package:braincarrier/ui/util/app_colors.dart';
+import 'package:braincarrier/src/ui/screens/login_screen.dart';
+import 'package:braincarrier/src/ui/screens/student/studen_deshboard.dart';
+import 'package:braincarrier/src/ui/screens/teacher/teacher_deshboard.dart';
+
+import 'package:braincarrier/src/ui/util/app_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UserAuthController extends GetxController {
-
   static UserAuthController instance = Get.find();
   bool _emailVerificationInProgress = false;
   bool get emailVerificationInProgress => _emailVerificationInProgress;
@@ -19,7 +19,7 @@ class UserAuthController extends GetxController {
   @override
   void onReady() {
     // user logged in or out
-    _user = Rx<User?> (auth.currentUser)  ;
+    _user = Rx<User?>(auth.currentUser);
     // user would be notified
     _user.bindStream(auth.userChanges());
 
@@ -38,10 +38,12 @@ class UserAuthController extends GetxController {
     return true;
   }
 
-  Future<void>createUser(String email, String password, String userRole) async{
+  Future<void> createUser(
+      String email, String password, String userRole) async {
     _emailVerificationInProgress = true;
     try {
-     await auth.createUserWithEmailAndPassword(email: email, password: password);
+      await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       if (auth.currentUser != null) {
         _emailVerificationInProgress = false;
         Get.snackbar('About User', 'User Message',
