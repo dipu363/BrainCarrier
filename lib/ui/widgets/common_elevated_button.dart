@@ -1,28 +1,27 @@
-
 import 'package:braincarrier/ui/util/app_colors.dart';
 import 'package:flutter/material.dart';
 
-
 class CommonElevatedButton extends StatelessWidget {
   const CommonElevatedButton({
-    super.key, required this.title, required this.onTap,
+    super.key,
+    required this.title,
+    required this.onTap,
   });
   final String title;
-  final VoidCallback onTap ;
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-
-
     return SizedBox(
-      width:150,
+      width: double.infinity,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,
           ),
           onPressed: onTap,
-          child:  Text(
+          child: Text(
             title,
-            style: const TextStyle(fontWeight: FontWeight.w600,color: Colors.white),
+            style: const TextStyle(
+                fontWeight: FontWeight.w600, color: Colors.white),
           )),
     );
   }

@@ -1,10 +1,6 @@
-
-
-
 import 'package:flutter/material.dart';
 
 import '../util/app_colors.dart';
-
 
 class CommonEditTextField extends StatelessWidget {
   const CommonEditTextField({
@@ -26,10 +22,10 @@ class CommonEditTextField extends StatelessWidget {
       decoration: InputDecoration(
           hintText: hintext,
           contentPadding:
-          const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          border:  const OutlineInputBorder(
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: primaryColor, width: 2)),
-          enabledBorder:  const OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: primaryColor, width: 2))),
     );
   }

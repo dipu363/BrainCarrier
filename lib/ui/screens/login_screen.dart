@@ -1,6 +1,7 @@
+import 'package:braincarrier/ui/screens/get_start_screen.dart';
+import 'package:braincarrier/ui/widgets/common_elevated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-
+import 'package:get/get.dart';
 import '../state_managers/user_auth_controller.dart';
 import '../util/app_colors.dart';
 import '../util/style.dart';
@@ -38,6 +39,10 @@ class _LogInScreenState extends State<LogInScreen> {
                   Text(
                     'Welcom Back',
                     style: titleTextStyle,
+                  ),
+                  Text(
+                    'Enter Email address nad password',
+                    style: subtitleTextStyle,
                   ),
                   const SizedBox(height: 24),
                   CommonEditTextField(
@@ -77,29 +82,45 @@ class _LogInScreenState extends State<LogInScreen> {
                   authController.emailVerificationInProgress
                       ? const CircularProgressIndicator()
                       : SizedBox(
-                    width: double.infinity,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: primaryColor,
-                            ),
-                            onPressed: () {
+                          width: double.infinity,
+                          child: CommonElevatedButton(
+                            title: 'next',
+                            onTap: () {
                               if (_formKey.currentState!.validate()) {
-
-
-                                emailVerifyController.text ='';
+                                emailVerifyController.text = '';
                                 passWordController.text = '';
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                         content: Text('LogIn Success ')));
                               }
                             },
-                            child: const Text('Next',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white)),
+                          )),
+                  const SizedBox(
+                    height: 14,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Text(
+                            'Don\'t have an account',
+                            style: subtitleTextStyle,
                           ),
+                          TextButton(
+                              onPressed: () {
+                                Get.to(const GetStartedScreen());
+                              },
+                              child: Text(
+                                'SignUp',
+                                style: subtitleTextStyle.copyWith(
+                                    color: primaryColor),
+                              ))
+                        ],
                       ),
+                    ],
+                  )
                 ],
               ),
             ),

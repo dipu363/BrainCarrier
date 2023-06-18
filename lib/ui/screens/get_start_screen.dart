@@ -1,7 +1,5 @@
-
 import 'package:braincarrier/ui/screens/signup_screen.dart';
 import 'package:braincarrier/ui/util/app_colors.dart';
-import 'package:braincarrier/ui/widgets/common_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,19 +39,35 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CommonElevatedButton(
-                      title: 'Teacher',
-                      onTap: () {
-                        Get.to(const SignUpScreen(userRole: 'Teacher',));
-                      }),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                    ),
+                    onPressed: () {
+                      Get.to(const SignUpScreen(userRole: 'Student'));
+                    },
+                    child: const Text('Teacher',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white)),
+                  ),
                   const SizedBox(
                     width: 8.0,
                   ),
-                  CommonElevatedButton(
-                      title: 'Student',
-                      onTap: () {
-                        Get.to(const SignUpScreen(userRole: 'Student'));
-                      }),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                    ),
+                    onPressed: () {
+                      Get.to(const SignUpScreen(userRole: 'Student'));
+                    },
+                    child: const Text('Student',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white)),
+                  ),
                 ],
               ),
             )
@@ -63,4 +77,3 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
     );
   }
 }
-
