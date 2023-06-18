@@ -1,4 +1,6 @@
 import 'package:braincarrier/src/ui/screens/teacher/teacher_quiz_screen.dart';
+import 'package:braincarrier/src/ui/state_managers/profile_controller.dart';
+import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:braincarrier/src/ui/util/app_colors.dart';
 import 'package:braincarrier/src/ui/util/style.dart';
 import 'package:braincarrier/src/ui/widgets/menu_card_widget.dart';
@@ -24,6 +26,12 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
                 color: primaryColor,
               )),
           title: const Text('Dashboard'),
+          titleSpacing: 10,
+          actions: [
+            IconButton(onPressed: (){
+              UserAuthController.instance.signOut();
+            }, icon: const Icon(Icons.person_outline))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),

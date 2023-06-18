@@ -1,15 +1,17 @@
 import 'package:braincarrier/src/ui/screens/splash_screen.dart';
+import 'package:braincarrier/src/ui/state_managers/profile_controller.dart';
 import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp().then((value) => Get.put(UserAuthController()));
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -32,6 +34,6 @@ class MyApp extends StatelessWidget {
 class GetXBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put(UserAuthController());
+    Get.put(ProfileController());
   }
 }

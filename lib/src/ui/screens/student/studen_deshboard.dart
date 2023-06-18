@@ -1,4 +1,5 @@
 import 'package:braincarrier/src/ui/screens/student/student_quiz_screen.dart';
+import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:braincarrier/src/ui/util/app_colors.dart';
 import 'package:braincarrier/src/ui/util/style.dart';
 import 'package:braincarrier/src/ui/widgets/menu_card_widget.dart';
@@ -24,6 +25,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 color: primaryColor,
               )),
           title: const Text('Dashboard'),
+          actions: [
+            IconButton(onPressed: (){
+              UserAuthController.instance.signOut();
+            }, icon: const Icon(Icons.person_outline))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),

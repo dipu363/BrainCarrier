@@ -4,32 +4,36 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class ProfileController extends GetxController {
+  static ProfileController get instance => Get.find();
   final _db = FirebaseFirestore.instance;
 
   // create user
-  Future<void> createUser(UserModel user) async {
+  Future<void> saveUserInfo(UserModel user) async {
     _db
         .collection("Users")
         .add(user.toJson())
-        .whenComplete(() => Get.snackbar(
-              'Success',
-              'Your account has been created.',
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: Colors.green.withOpacity(.1),
-              colorText: Colors.green,
-            ))
+        .whenComplete(
+          () => Get.snackbar(
+            'Success',
+            'Your account has been created.',
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.green.withOpacity(.1),
+            colorText: Colors.green,
+          ),
+        )
         .catchError((onError) {
-      Get.snackbar('Success', 'Your account has been created.',
+      print('  =========================${onError.toString()}');
+      Get.snackbar('Failed!', ' ${onError.toString()}',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green.withOpacity(.1),
-          colorText: Colors.green);
+          backgroundColor: Colors.red.withOpacity(.1),
+          colorText: Colors.red);
     });
   }
 
   // get single user information
   Future<UserModel> getUserInfo(String userId) async {
     final snapshot =
-        await _db.collection('Users').where('id', isEqualTo: userId).get();
+        await _db.collection('Users').where('Email', isEqualTo: userId).get();
     final userDetails = snapshot.docs
         .map((document) => UserModel.fromSnapshot(document))
         .single;
@@ -47,6 +51,10 @@ class ProfileController extends GetxController {
 
   // update user details
   Future<void> updateUserInfo(UserModel user) async {
-    await _db.collection('Users').doc(user.id).update(user.toJson());
+    await _db
+        .collection('Users')
+        .doc(user.id)
+        .update(user.toJson())
+        .whenComplete(() => null);
   }
 }

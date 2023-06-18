@@ -44,7 +44,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       backgroundColor: primaryColor,
                     ),
                     onPressed: () {
-                      Get.to(const SignUpScreen(userRole: 'Student'));
+                      Get.to(const SignUpScreen(userRole: 'Teacher'));
                     },
                     child: const Text('Teacher',
                         style: TextStyle(

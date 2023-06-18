@@ -21,7 +21,8 @@ class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<UserAuthController>(builder: (authController) {
+      body: GetBuilder<UserAuthController>(
+          builder: (authController) {
         return Padding(
           padding: const EdgeInsets.all(36.0),
           child: Center(
@@ -79,7 +80,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                 BorderSide(color: primaryColor, width: 2))),
                   ),
                   const SizedBox(height: 16),
-                  authController.emailVerificationInProgress
+                  authController.loginProgress
                       ? const CircularProgressIndicator()
                       : SizedBox(
                           width: double.infinity,
@@ -87,11 +88,9 @@ class _LogInScreenState extends State<LogInScreen> {
                             title: 'next',
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
+                                authController.loggedIn(emailVerifyController.text, passWordController.text);
                                 emailVerifyController.text = '';
                                 passWordController.text = '';
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text('LogIn Success ')));
                               }
                             },
                           )),

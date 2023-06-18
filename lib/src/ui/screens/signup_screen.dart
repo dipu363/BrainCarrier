@@ -1,3 +1,5 @@
+import 'package:braincarrier/src/data/user_model.dart';
+import 'package:braincarrier/src/ui/state_managers/profile_controller.dart';
 import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:braincarrier/src/ui/util/app_colors.dart';
 import 'package:braincarrier/src/ui/util/style.dart';
@@ -134,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 24,
                 ),
                 GetBuilder<UserAuthController>(builder: (authController) {
-                  return authController.emailVerificationInProgress
+                  return authController.userCreateProgress
                       ? const CircularProgressIndicator()
                       : CommonElevatedButton(
                           title: 'Submit',
@@ -142,13 +144,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             String email = emailTextController.text;
                             String password = passTextController.text;
                             if (_formKey.currentState!.validate()) {
+
+                              Get.find<UserAuthController>()
+                                  .createUser(email, password, widget.userRole);
+
+                              var userdata = UserModel
+                                (uRole: widget.userRole,
+                                  uName: nameTextController.text,
+                                  email: emailTextController.text,
+                                  phoneNo: mobileTextController.text,
+                                  city: cityTextController.text,
+                                  password: passTextController.text
+                              );
+                              ProfileController.instance.saveUserInfo(userdata);
                               nameTextController.text = '';
                               emailTextController.text = '';
                               mobileTextController.text = '';
                               cityTextController.text = '';
                               passTextController.text = '';
-                              Get.find<UserAuthController>()
-                                  .createUser(email, password, widget.userRole);
+
+
                             }
                           });
                 })
