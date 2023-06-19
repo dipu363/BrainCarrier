@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class UserModel {
+class QuizModel {
   final String? id;
   final String uRole;
   final String uName;
@@ -10,7 +10,7 @@ class UserModel {
   final String password;
 
   // constructor
-  const UserModel(
+  const QuizModel(
       {this.id,
       required this.uRole,
       required this.uName,
@@ -32,11 +32,11 @@ class UserModel {
 
 //this name constructor for data fetch from firestore
 // DocumentSanpshot class comes from cloud firestore so import cloud firestore package
-  factory UserModel.fromSnapshot(
+  factory QuizModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
 
-    return UserModel(
+    return QuizModel(
         id: document.id,
         uRole: data['Role'], // key name to be db column name
         uName: data['FullName'],

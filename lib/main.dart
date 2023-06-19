@@ -1,5 +1,6 @@
 import 'package:braincarrier/src/ui/screens/splash_screen.dart';
 import 'package:braincarrier/src/ui/state_managers/profile_controller.dart';
+import 'package:braincarrier/src/ui/state_managers/teacher_quiz_controller.dart';
 import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -35,5 +36,6 @@ class GetXBindings extends Bindings {
   @override
   void dependencies() {
     Get.put(ProfileController());
+    Get.put(TeacherQuizController());
   }
 }

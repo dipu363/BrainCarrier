@@ -1,3 +1,4 @@
+import 'package:braincarrier/src/data/quiz_model.dart';
 import 'package:flutter/material.dart';
 
 import '../util/app_colors.dart';
@@ -5,10 +6,11 @@ import '../util/app_colors.dart';
 class QuizeTitleWidget extends StatelessWidget {
   const QuizeTitleWidget({
     super.key,
-    required this.index,
+    required this.index, required this.quizModel,
   });
 
   final int index;
+  final QuizModel quizModel;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,9 @@ class QuizeTitleWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: primaryColor),
                 ),
-                const Text(
-                  'Subject: Easy Quiz ',
-                  style: TextStyle(
+                 Text(
+                  quizModel.title!,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                   ),
@@ -46,24 +48,24 @@ class QuizeTitleWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               border: Border(),
             ),
-            child: const Card(
+            child:  Card(
                 elevation: 5,
                 color: Colors.black,
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.access_time_rounded,
                         color: Colors.white,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
-                      Text('alive',
-                          style: TextStyle(
+                      Text(quizModel.status!,
+                          style: const TextStyle(
                               fontSize: 16,
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),

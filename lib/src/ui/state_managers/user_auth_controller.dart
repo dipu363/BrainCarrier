@@ -64,9 +64,9 @@ class UserAuthController extends GetxController {
       _userCreateProgress = false;
       update();
       if (userRole == 'Teacher') {
-        Get.offAll(() => const TeacherDashboard());
+        Get.offAll(const TeacherDashboard());
       } else {
-        Get.offAll(() => const StudentDashboard());
+        Get.offAll(const StudentDashboard());
       }
       Get.snackbar(
         'Success',
@@ -125,6 +125,6 @@ class UserAuthController extends GetxController {
   }
 
   Future<void> signOut() async => await _auth
-      .signOut()
-      .whenComplete(() => Get.offAll(() => const LogInScreen()));
+      .signOut();
+
 }

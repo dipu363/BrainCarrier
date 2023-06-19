@@ -148,7 +148,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Get.find<UserAuthController>()
                                   .createUser(email, password, widget.userRole);
 
-                              var userdata = UserModel
+                              var userdata = QuizModel
                                 (uRole: widget.userRole,
                                   uName: nameTextController.text,
                                   email: emailTextController.text,

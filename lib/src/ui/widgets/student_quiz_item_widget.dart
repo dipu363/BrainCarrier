@@ -64,7 +64,7 @@ class StudentQuizzesItemsWidget extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          QuizeTitleWidget(index: index),
+                          //QuizeTitleWidget(index: index),
                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(

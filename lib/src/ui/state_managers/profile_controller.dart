@@ -1,14 +1,17 @@
 import 'package:braincarrier/src/data/user_model.dart';
+import 'package:braincarrier/src/ui/state_managers/user_auth_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class ProfileController extends GetxController {
   static ProfileController get instance => Get.find();
+
+
   final _db = FirebaseFirestore.instance;
 
   // create user
-  Future<void> saveUserInfo(UserModel user) async {
+  Future<void> saveUserInfo(QuizModel user) async {
     _db
         .collection("Users")
         .add(user.toJson())
@@ -31,26 +34,35 @@ class ProfileController extends GetxController {
   }
 
   // get single user information
-  Future<UserModel> getUserInfo(String userId) async {
+  Future<QuizModel> getUserInfo(String userId) async {
     final snapshot =
         await _db.collection('Users').where('Email', isEqualTo: userId).get();
     final userDetails = snapshot.docs
-        .map((document) => UserModel.fromSnapshot(document))
+        .map((document) => QuizModel.fromSnapshot(document))
+        .single;
+    return userDetails;
+  }
+  Future<QuizModel> currentUserInfo() async {
+    var user = UserAuthController.instance.firebaseUser.value;
+    final snapshot =
+        await _db.collection('Users').where('Email', isEqualTo: user!.email ).get();
+    final userDetails = snapshot.docs
+        .map((document) => QuizModel.fromSnapshot(document))
         .single;
     return userDetails;
   }
 
   // get all users list
-  Future<List<UserModel>> getUsers() async {
+  Future<List<QuizModel>> getUsers() async {
     final snapshot = await _db.collection('Users').get();
     final userDetails = snapshot.docs
-        .map((document) => UserModel.fromSnapshot(document))
+        .map((document) => QuizModel.fromSnapshot(document))
         .toList();
     return userDetails;
   }
 
   // update user details
-  Future<void> updateUserInfo(UserModel user) async {
+  Future<void> updateUserInfo(QuizModel user) async {
     await _db
         .collection('Users')
         .doc(user.id)
