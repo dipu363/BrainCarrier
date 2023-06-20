@@ -3,14 +3,40 @@
 Brain Carrier is an quizze app build with flutter faremwork for android and ios and web.
 
 ## Getting Started
+Objective: To build a quiz app that allows teachers to create quizzes and students to take quizzes.
 
-This project is a starting point for a Flutter application.
+## Tools & Technology
 
-A few resources to get you started if this is your first Flutter project:
+    - Language: Dart (OOP)
+    - State Management: GetX Library
+    - Framwork: Flutter
+    - Storage : Firebase Cloud firestore
+    - Authentication: Firebase Authentication
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Authentication Modules
+    - Implement a Splash screen on the starting point the app.
+    - Implement a login module for both teachers and students using Firebase authentication.
+    - Implement a getstarted screen for defining user role as teacher or student.
+    - Implement a SignUp module fo both teachers and students using firebase authentication.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Teacher Module:
+
+   - Teachers able to create quizzes by adding questions.
+   - Teachers  able to view the results of quizzes.
+
+# Student Module:
+
+   - Students  able to view the available quizzes.
+   - Students  able to answer the questions and submit their answers.
+
+# Dashboard:
+
+   - Implement dashboard for both teachers and students.
+   - Display relevant information such as available quizzes and ongoing quizzes.
+
+# Firebase Integration:
+   - Implement Firebase for authentication and database storage.
+
+ 
+    
+
