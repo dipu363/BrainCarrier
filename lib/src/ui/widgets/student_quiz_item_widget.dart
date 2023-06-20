@@ -1,16 +1,18 @@
 import 'package:braincarrier/src/ui/widgets/quize_title_widge.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/quiz_model.dart';
 import '../util/app_colors.dart';
 import '../util/style.dart';
 
 class StudentQuizzesItemsWidget extends StatelessWidget {
   const StudentQuizzesItemsWidget({
     super.key,
-    required this.index,
+    required this.index, required this.quiz,
   });
 
   final int index;
+  final QuizModel quiz;
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +63,11 @@ class StudentQuizzesItemsWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(.4),
                           borderRadius: BorderRadius.circular(15)),
-                      child: Column(
+                      child:  Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          //QuizeTitleWidget(index: index),
-                          const Padding(
+                          QuizeTitleWidget(index: index,quizModel: quiz,),
+                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               'This is mcq test for 20 minutes ,20 marks answer the all questions',

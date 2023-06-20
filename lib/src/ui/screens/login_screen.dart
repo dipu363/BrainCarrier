@@ -80,12 +80,10 @@ class _LogInScreenState extends State<LogInScreen> {
                                 BorderSide(color: primaryColor, width: 2))),
                   ),
                   const SizedBox(height: 16),
-                  authController.loginProgress
-                      ? const CircularProgressIndicator()
-                      : SizedBox(
+                 SizedBox(
                           width: double.infinity,
                           child: CommonElevatedButton(
-                            title: 'next',
+                            title: 'Next',
                             onTap: () {
                               if (_formKey.currentState!.validate()) {
                                 authController.loggedIn(emailVerifyController.text, passWordController.text);

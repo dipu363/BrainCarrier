@@ -102,7 +102,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                       height: 20,
                     ),
 
-                    CommonElevatedButton(title: 'Add', onTap: (){
+                    CommonElevatedButton(title: 'Go Next', onTap: (){
                       if(_formKey.currentState!.validate()){
                        var user = UserAuthController.instance.firebaseUser.value;
                        if(user != null){
@@ -117,7 +117,7 @@ class _AddQuizScreenState extends State<AddQuizScreen> {
                              status: status.text
                          );
                          TeacherQuizController.instance.saveQuiz(quiz);
-                         Get.to( AddQuestionScreen(quiz: quiz));
+                         Get.to( AddQuestionScreen( quizId: TeacherQuizController.instance.quizId, quiz:quiz,));
                        }
 
 

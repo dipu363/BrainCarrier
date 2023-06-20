@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class ProfileController extends GetxController {
-  static ProfileController get instance => Get.find();
+  static ProfileController get instance => Get.find<ProfileController>();
 
 
   final _db = FirebaseFirestore.instance;
